@@ -9,8 +9,22 @@ hosting: any push to the default branch that GitHub Pages is configured to serve
 (typically `main`) is published directly at `https://johannaj183.github.io/` with
 no build step required.
 
-The site is currently a minimal static scaffold and is expected to grow over time
-(about/projects/contact content, possibly more pages or a blog).
+The site owner is a data analyst working primarily in **Tableau**. The site's
+purpose is to showcase personal data analysis and visualization projects
+(often for nonprofit organizations) and, eventually, a blog. Keep this
+audience/context in mind when writing copy or structuring new sections —
+content should read as a data analyst's portfolio, not a generic dev site.
+
+The site is currently a minimal static scaffold and is expected to grow over
+time. Known near-term direction:
+- **Blog**: planned but not yet built. A `#blog` placeholder section exists in
+  `index.html`. When building it for real, prefer the simplest option that
+  stays buildless (e.g. static per-post HTML files under a `blog/` directory
+  linked from an index) over introducing a static site generator, unless the
+  user asks for one.
+- **Projects**: intended to showcase Tableau/data-viz projects, especially
+  nonprofit-focused ones. These will likely link out to or embed Tableau
+  Public visualizations — see the embeds note in Conventions below.
 
 ## Structure
 
@@ -43,6 +57,11 @@ unless explicitly asked; keep the site buildless and dependency-free.
   whether served from the Pages root or a preview path.
 - New pages should follow `index.html`'s structure: a `.site-header`, `.site-nav`,
   `<main>` with `<section>`s, and a `.site-footer`.
+- **Tableau embeds**: when real project entries are added, Tableau Public
+  visualizations are typically embedded via their provided `<iframe>` or the
+  `tableau-viz` web component script from Tableau's public CDN — this is the
+  one case where an external `<script>`/embed is expected and fine to add,
+  scoped to the project page/card that needs it (don't load it site-wide).
 
 ## Development workflow
 
